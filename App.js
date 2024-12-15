@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView, Button, Linking } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Button, Linking} from 'react-native';
 import {FontAwesome6} from "@expo/vector-icons"
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
 
@@ -9,6 +10,8 @@ export default function App() {
   }
 
   return (
+    <SafeAreaProvider>
+      <SafeAreaView edges={['bottom']}>
     <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
       <Image source={{uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/0.jpeg"}} 
@@ -40,7 +43,11 @@ Ea eiusmod reprehenderit nostrud occaecat ipsum elit mollit aute elit esse eiusm
       <StatusBar style="auto" />
     </View>
     </ScrollView>
+    </SafeAreaView>
+    </SafeAreaProvider>
   );
+
+
 }
 
 const styles = StyleSheet.create({
